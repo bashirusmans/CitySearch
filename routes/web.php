@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\City;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $cities = City::all();
+
+    // Initialize an array to store non-empty city names
+    $cityNames = [];
+
+    // Loop through $cities and store non-empty city names in the array
+    foreach ($cities as $city) {
+        // Check if the 'city' attribute is not an empty string
+        if ($city->city !== '') {
+            $cityNames[] = $city->city;
+        }
+    }
+    return view('index',['cities'=>$cityNames]);
+});
+
+Route::get('/{city}',function($city){
+    $cityobj = City::where('city', $city)->first();
+    return view('cities',['city'=>$cityobj]);
 });
