@@ -7,13 +7,21 @@ if(city){
     city.addEventListener('input',function(){
         filter(this.value);
         citylist.innerHTML = "";
+        hide.classList.add('hide');
         filteredlist.forEach(x => {
             var a = document.createElement('a');
+            var newdiv = document.createElement('div');
             a.innerHTML = x;
             a.id = x;
             a.href = x;
-            citylist.appendChild(a)
-            citylist.appendChild(document.createElement('br'));
+            newdiv.classList.add('d-flex');
+            newdiv.classList.add('justify-content-center');
+            a.classList.add('small-title');
+            a.classList.add('link')
+            newdiv.appendChild(a)
+            citylist.appendChild(newdiv)
+            newdiv.appendChild(document.createElement('br'));
+            hide.classList.remove('hide');
         });
     })
 }
@@ -32,3 +40,5 @@ function filter(letter){
         }
     });
 }
+
+var hide = document.getElementById('hide');

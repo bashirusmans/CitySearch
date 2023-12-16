@@ -19,6 +19,10 @@ body.dark{
 	font-size: 50px;
 }
 
+.small-title{
+	font-size: 40px;
+}
+
 h1,h2,h3,h4,h5,h6{
 	color:hsl(0, 0%, 30%);
 }
@@ -28,6 +32,20 @@ h1,h2,h3,h4,h5,h6{
 	background-color: #fff;
 	border-radius: 4px;
 	padding: 10px;
+    opacity: 0.85;
+}
+
+.hide{
+    display: none;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--navlight);
+}
+
+.link:hover{
+    color: var(--buttons);
 }
 
 .bg-dark{
@@ -50,7 +68,7 @@ h1,h2,h3,h4,h5,h6{
 
 
 :root{
-    --nav: #1f2833;
+    --nav: #031f40;
     --buttons: #66fcf1;
     --navlight: #388087;
     --buttonslight: #f6f6f2;
